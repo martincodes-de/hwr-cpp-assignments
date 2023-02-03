@@ -21,9 +21,6 @@ private:
     void updateFromPolar();
 
 public:
-    void setCartesian(double real, double imag);
-
-    void setPolar(double r, double phi);
 
     void setReal(double real);
 

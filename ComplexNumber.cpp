@@ -1,20 +1,6 @@
 #include <cmath>
 #include "ComplexNumber.h"
 
-void ComplexNumber::setCartesian(double real, double imag) {
-    cartesian.real = real;
-    cartesian.imag = imag;
-
-    updateFromCartesian();
-}
-
-void ComplexNumber::setPolar(double r, double phi) {
-    polar.r = r;
-    polar.phi = phi;
-
-    updateFromPolar();
-}
-
 void ComplexNumber::setReal(double real) {
     cartesian.real=real;
     updateFromCartesian();
