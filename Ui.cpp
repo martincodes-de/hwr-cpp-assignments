@@ -8,7 +8,6 @@ void Ui::start() {
 }
 
 void Ui::showMenuAndWaitForInput() {
-    double real, imag, r, phi;
     int selectedActionNumber;
 
     displayMainMenu();
@@ -17,58 +16,34 @@ void Ui::showMenuAndWaitForInput() {
 
     switch (selectedActionNumber) {
         case 1:
-            std::cout<<"Bitte Realteil eingeben:"<<std::endl;
-            std::cin>>real;
-
-            std::cout<<"Bitte Imaginaerteil eingeben:"<<std::endl;
-            std::cin>>imag;
-            this->complexNumber.setCartesian(real,imag);
+            promptImag();
+            promptReal();
             break;
         case 2:
-            std::cout << "Bitte Betrag r eingeben" << std::endl;
-            std::cin >> r;
-
-            std::cout << "Bitte Betrag phi eingeben" << std::endl;
-            std::cin >> phi;
-
-            this->complexNumber.setPolar(r, phi);
+            promptR();
+            promptPhi();
             break;
         case 3:
-            std::cout << "Bitte Realteil eingeben:" << std::endl;
-            std::cin >> real;
-            this->complexNumber.setReal(real);
+            promptReal();
             break;
         case 4:
-            std::cout<<"Bitte Imaginaerteil eingeben:"<<std::endl;
-            std::cin>>imag;
-            this->complexNumber.setImag(imag);
+            promptImag();
+            break;
         case 5:
-            std::cout << "Bitte Betrag r eingeben" << std::endl;
-            std::cin >> r;
-            this->complexNumber.setR(r);
+            promptR();
             break;
         case 6:
-            std::cout << "Bitte Betrag phi eingeben" << std::endl;
-            std::cin >> phi;
-            this->complexNumber.setPhi(phi);
+            promptPhi();
             break;
         case 7:
             printCartesian();
             break;
         case 8:
-            r = this->complexNumber.getPolar().r;
-            phi = this->complexNumber.getPolar().phi;
-
-            std::cout << "R: " << r << " | Phi: " << phi << std::endl;
+            printPolar();
             break;
         case 9:
-            real = this->complexNumber.getCartesian().real;
-            imag = this->complexNumber.getCartesian().imag;
-            std::cout << "Realteil: " << real << " | Imaginaerteil: " << imag << std::endl;
-            
-            r = this->complexNumber.getPolar().r;
-            phi = this->complexNumber.getPolar().phi;
-            std::cout << "R: " << r << " | Phi: " << phi << std::endl;
+            printCartesian();
+            printPolar();
             break;
         case 10:
             this->keepRunning = false;
