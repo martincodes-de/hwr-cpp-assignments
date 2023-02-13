@@ -21,14 +21,6 @@ void ComplexNumber::setPhi(double phi) {
     updateFromPolar();
 }
 
-Cartesian ComplexNumber::getCartesian() {
-    return cartesian;
-}
-
-Polar ComplexNumber::getPolar() {
-    return polar;
-}
-
 void ComplexNumber::updateFromCartesian() {
     polar.r = sqrt(pow(cartesian.imag, 2) + pow(cartesian.real, 2));
     polar.phi = atan(cartesian.imag / cartesian.real);
@@ -37,4 +29,14 @@ void ComplexNumber::updateFromCartesian() {
 void ComplexNumber::updateFromPolar() {
     cartesian.real = polar.r * cos(polar.phi);
     cartesian.imag = polar.r * sin(polar.phi);
+}
+
+std::string ComplexNumber::toCartesianString() const {
+    std::string buildString = std::to_string(cartesian.real) + " + " + std::to_string(cartesian.imag) + " i";
+    return buildString;
+}
+
+std::string ComplexNumber::toPolarString() const {
+    std::string buildString = std::to_string(polar.r) + " * e ^ (i * " + std::to_string(polar.phi) + ")";
+    return buildString;
 }

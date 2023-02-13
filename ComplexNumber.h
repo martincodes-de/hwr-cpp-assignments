@@ -1,6 +1,8 @@
 #ifndef HWR_CPP_ASSIGNMENTS_COMPLEXNUMBER_H
 #define HWR_CPP_ASSIGNMENTS_COMPLEXNUMBER_H
 
+#include <string>
+
 struct Cartesian {
     double real;
     double imag;
@@ -33,6 +35,10 @@ public:
     Cartesian getCartesian();
 
     Polar getPolar();
+
+    std::string toCartesianString() const;
+
+    std::string toPolarString() const;
 };
 
 

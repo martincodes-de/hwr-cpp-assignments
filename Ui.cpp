@@ -87,15 +87,9 @@ void Ui::promptPhi() {
 }
 
 void Ui::printCartesian() {
-    real = this->complexNumber.getCartesian().real;
-    imag = this->complexNumber.getCartesian().imag;
-
-    std::cout << "Realteil:\t " << real << "\t\t| Imaginaerteil:\t" << imag << std::endl;
+    std::cout << "Karthesische Form:  "<< complexNumber.toCartesianString() << std::endl;
 }
 
 void Ui::printPolar() {
-    r = this->complexNumber.getPolar().r;
-    phi = this->complexNumber.getPolar().phi;
-
-    std::cout << "R:\t\t " << r << "\t| Phi:\t\t\t" << phi << std::endl;
+    std::cout << "Polare Form:\t    "<<complexNumber.toPolarString()<<std::endl;
 }
