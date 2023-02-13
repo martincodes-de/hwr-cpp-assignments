@@ -8,6 +8,13 @@
 // 1b)Der Compiler wirft einen Error. Da wir einen Constructor implementiert haben, wird kein default-Constructor mehr erzeugt,
 // und wir haben keinen Constructor ohne Initialisierungswerte implementiert.
 
+// 2) "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" --build C:\Users\Malte\CLionProjects\hwr-cpp-assignments\cmake-build-debug --target hwr_cpp_assignments -j 9
+// FAILED: CMakeFiles/hwr_cpp_assignments.dir/Ui.cpp.obj
+// C:/Users/Malte/CLionProjects/hwr-cpp-assignments/Ui.cpp: In constructor 'Ui::Ui()':
+// C:/Users/Malte/CLionProjects/hwr-cpp-assignments/Ui.cpp:97:8: error: call of overloaded 'ComplexNumber()' is ambiguous
+//   97 | Ui::Ui(){}
+//      |        ^
+
 ComplexNumber::ComplexNumber(Cartesian cartesian) {
     this->setReal(cartesian.real);
     this->setImag(cartesian.imag);
@@ -17,6 +24,8 @@ ComplexNumber::ComplexNumber(Polar polar) {
     this->setR(polar.r);
     this->setPhi(polar.phi);
 }
+
+ComplexNumber::ComplexNumber() = default;
 
 void ComplexNumber::setReal(double real) {
     cartesian.real = real;

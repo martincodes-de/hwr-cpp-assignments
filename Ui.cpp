@@ -93,3 +93,5 @@ void Ui::printCartesian() {
 void Ui::printPolar() {
     std::cout << "Polare Form:\t    " << complexNumber.toPolarString() << std::endl;
 }
+
+Ui::Ui(){}

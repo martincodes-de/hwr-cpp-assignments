@@ -5,16 +5,14 @@
 
 class Ui {
 private:
-    ComplexNumber complexNumber{};
+    ComplexNumber complexNumber;
+
     bool keepRunning = true;
+
     double real{}, imag{}, r{}, phi{};
 
     void showMenuAndWaitForInput();
 
-public:
-    void start();
-
-private:
     static void displayMainMenu();
 
     void promptReal();
@@ -28,6 +26,11 @@ private:
     void printCartesian();
 
     void printPolar();
+
+public:
+    void start();
+
+    Ui();
 };
 
-#endif //HWR_CPP_ASSIGNMENTS_UI_H
+#endif
