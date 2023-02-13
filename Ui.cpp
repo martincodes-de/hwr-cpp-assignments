@@ -87,9 +87,9 @@ void Ui::promptPhi() {
 }
 
 void Ui::printCartesian() {
-    std::cout << "Karthesische Form:  "<< complexNumber.toCartesianString() << std::endl;
+    std::cout << "Karthesische Form:  " << complexNumber.toCartesianString() << std::endl;
 }
 
 void Ui::printPolar() {
-    std::cout << "Polare Form:\t    "<<complexNumber.toPolarString()<<std::endl;
+    std::cout << "Polare Form:\t    " << complexNumber.toPolarString() << std::endl;
 }

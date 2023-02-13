@@ -1,13 +1,30 @@
 #include <cmath>
 #include "ComplexNumber.h"
 
+// 1a)Da wir bereits structs für die kartesische und Polarkoordinaten verwendet haben, ist es naheliegend diese auch für
+// die Constructoren zu verwenden. Da sie beide aus zwei double, Variablen bestehen wäre es nicht möglich zwei verschiedene
+// Constructoren mit jeweils zwei double Werten zu haben.
+
+// 1b)Der Compiler wirft einen Error. Da wir einen Constructor implementiert haben, wird kein default-Constructor mehr erzeugt,
+// und wir haben keinen Constructor ohne Initialisierungswerte implementiert.
+
+ComplexNumber::ComplexNumber(Cartesian cartesian) {
+    this->setReal(cartesian.real);
+    this->setImag(cartesian.imag);
+}
+
+ComplexNumber::ComplexNumber(Polar polar) {
+    this->setR(polar.r);
+    this->setPhi(polar.phi);
+}
+
 void ComplexNumber::setReal(double real) {
-    cartesian.real=real;
+    cartesian.real = real;
     updateFromCartesian();
 }
 
 void ComplexNumber::setImag(double imag) {
-    cartesian.imag=imag;
+    cartesian.imag = imag;
     updateFromCartesian();
 }
 

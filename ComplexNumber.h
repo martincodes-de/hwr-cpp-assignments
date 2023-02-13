@@ -15,14 +15,17 @@ struct Polar {
 
 class ComplexNumber {
 private:
-    Cartesian cartesian;
-    Polar polar;
+    Cartesian cartesian{};
+    Polar polar{};
 
     void updateFromCartesian();
 
     void updateFromPolar();
 
 public:
+    explicit ComplexNumber(Cartesian cartesian);
+
+    explicit ComplexNumber(Polar polar);
 
     void setReal(double real);
 
@@ -31,10 +34,6 @@ public:
     void setR(double r);
 
     void setPhi(double phi);
-
-    Cartesian getCartesian();
-
-    Polar getPolar();
 
     std::string toCartesianString() const;
 
