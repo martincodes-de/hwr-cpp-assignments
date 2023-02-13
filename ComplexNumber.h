@@ -23,11 +23,11 @@ private:
     void updateFromPolar();
 
 public:
-    explicit ComplexNumber(Cartesian cartesian = {1, 1});
+    explicit ComplexNumber(Cartesian givenCartesian = {1, 1}) : cartesian(givenCartesian){};
 
-    explicit ComplexNumber(Polar polar = {1, 1});
+    explicit ComplexNumber(Polar givenPolar = {1,1}) : polar(givenPolar){};
 
-    ComplexNumber();
+    ComplexNumber()= default;
 
     void setReal(double real);
 

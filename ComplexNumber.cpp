@@ -15,18 +15,6 @@
 //   97 | Ui::Ui(){}
 //      |        ^
 
-ComplexNumber::ComplexNumber(Cartesian cartesian) {
-    this->setReal(cartesian.real);
-    this->setImag(cartesian.imag);
-}
-
-ComplexNumber::ComplexNumber(Polar polar) {
-    this->setR(polar.r);
-    this->setPhi(polar.phi);
-}
-
-ComplexNumber::ComplexNumber() = default;
-
 void ComplexNumber::setReal(double real) {
     cartesian.real = real;
     updateFromCartesian();

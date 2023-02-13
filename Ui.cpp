@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Ui.h"
 
+Ui::Ui(){}
+
 void Ui::start() {
     while (this->keepRunning) {
         this->showMenuAndWaitForInput();
@@ -93,5 +95,3 @@ void Ui::printCartesian() {
 void Ui::printPolar() {
     std::cout << "Polare Form:\t    " << complexNumber.toPolarString() << std::endl;
 }
-
-Ui::Ui(){}
