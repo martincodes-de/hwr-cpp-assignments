@@ -37,7 +37,7 @@ public:
 
     //ComplexNumber()= default;
 
-    ComplexNumber(TwoPointFour);
+    explicit ComplexNumber(TwoPointFour);
 
     explicit ComplexNumber(double length);
 
