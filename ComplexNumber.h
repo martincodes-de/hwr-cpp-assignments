@@ -13,7 +13,8 @@ struct Polar {
     double phi;
 };
 
-struct twoPointFour{
+//Only needed for 2.4
+struct TwoPointFour {
     float x;
     float y;
 };
@@ -28,13 +29,17 @@ private:
     void updateFromPolar();
 
 public:
-    explicit ComplexNumber(Cartesian givenCartesian = {1, 1}) : cartesian(givenCartesian){}
+    explicit ComplexNumber(Cartesian givenCartesian = {1, 1}) : cartesian(givenCartesian) {}
 
-    explicit ComplexNumber(Polar givenPolar = {1,1}) : polar(givenPolar){}
+    //Commented out to fix ambiguity:
 
-    //ComplexNumber(twoPointFour={1,1}): cartesian(twoPointFour){}
+    //explicit ComplexNumber(Polar givenPolar = {1,1}) : polar(givenPolar){}
 
-    ComplexNumber()= default;
+    //ComplexNumber()= default;
+
+    ComplexNumber(TwoPointFour);
+
+    explicit ComplexNumber(double length);
 
     void setReal(double real);
 

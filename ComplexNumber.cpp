@@ -15,6 +15,20 @@
 //   97 | Ui::Ui(){}
 //      |        ^
 
+ComplexNumber::ComplexNumber(TwoPointFour twoPointFour) {
+    setR(twoPointFour.x);
+    setPhi(twoPointFour.y);
+}
+
+ComplexNumber::ComplexNumber(double length) {
+    setR(length);
+    if (length > 0) {
+        setPhi(0.7854); // 0.7854 rad equals 45°
+    } else {
+        setPhi(-0.7854); // -0.7854 rad equals -45°
+    }
+}
+
 void ComplexNumber::setReal(double real) {
     cartesian.real = real;
     updateFromCartesian();

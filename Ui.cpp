@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Ui.h"
 
-Ui::Ui(){}
+Ui::Ui() {}
 
 void Ui::start() {
     while (this->keepRunning) {
