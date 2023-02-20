@@ -25,6 +25,8 @@ public:
     Matrix33 operator*(int scalar) const;
     Matrix33 operator+=(Matrix33 &other);
 
+    operator double() const;
+
 private:
     double m_matrix[3][3];
 };

@@ -9,6 +9,10 @@ lassen Sie die Markierungen, wo welche Aufgabe beginnt im Quellcode!
 Hinweis: Bitte geben Sie nur die Quelldateien ohne das Visual Studio Projekt ab!
 */
 
+Matrix33 operator*(int scalar,Matrix33 &other){
+    return other * scalar;
+}
+
 int main() {
 
 
@@ -19,10 +23,10 @@ int main() {
     std::cout << "\n\nAufgabe 1\n=========\n" << std::endl;
 
     // Wo steckt der eigentliche Konstruktoraufruf bei der folgenden Anweisung?
-    //      Der Konstruktor wird erst in der Methode ones() in Matrix.cpp aufgerufen.
+        //Der Konstruktor wird erst in der Methode ones() in Matrix.cpp aufgerufen.
 
     // Wieso kann die Funktion ones() mit dem Scope-Operator, ohne Objekt aufgerufen werden?
-    //      Weil ones() als static deklariert worden ist, kann sie unabhängig von einem Objekt verwendet werden.
+        //Weil ones() als static deklariert worden ist, kann sie unabhängig von einem Objekt verwendet werden.
 
     Matrix33 mat1 = Matrix33::ones();
 
@@ -67,9 +71,12 @@ int main() {
     std::cout << "\n\nAufgabe 3\n=========\n" << std::endl;
 
     // Testen Sie folgende Anweisung:
-    //Matrix33 matResult4 = 5 * matA;
+    Matrix33 matResult4 = 5 * matA;
+    std::cout<<"5 * matA ="<<std::endl<<matResult4.toString()<< std::endl;
 
     // Warum funktioniert die Anweisung nicht? Lösen Sie das Problem!
+        // Beim Operatoren überladen wird immer die Operation vom linken Operanten genutzt. Weil in diesem Fall der
+        // Integer 5 links steht, wird der Operator, der in Aufgabe 2 implementiert wurde nicht gefunden.
 
 
 
@@ -81,7 +88,8 @@ int main() {
 
     Matrix33 matZ(1, 3, 5, 1, -2, 1, 1.5, 3.5, -4);
     // Erzeugen Sie einen Konvertierungsoperator, sodass folgender Ausdruck klappt.
-    // double det = matZ;
+     double det = matZ;
+     std::cout<<"det(matZ) = "<<det<<std::endl;
 
     // Der Konvertierungsoperator soll die Determinante der Matrix zurückgeben.
     // Hinweis: http://de.wikipedia.org/wiki/Determinante#Berechnung
