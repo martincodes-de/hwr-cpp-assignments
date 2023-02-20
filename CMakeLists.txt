@@ -8,4 +8,4 @@ include_directories(.)
 add_executable(Matrix
         main.cpp
         Matrix.cpp
-        Matrix.h)
+        Matrix.h OutOfBoundsException.h)

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Matrix.h"
+#include "OutOfBoundsException.h"
 
 /*
 Bearbeiten Sie die Aufgaben der Reihe nach direkt im Quellcode.
@@ -105,8 +106,12 @@ int main() {
     // Exceptionklasse. Ein Objekt dieser Klasse soll geworfen werden, wenn
     // bei der Verwendung der get-Funktion fehlerhafte Indizes eingegeben werden
     // z.B.
+    try{
+        double y = matX.get(3, 3);
 
-    double y = matX.get(3, 3);
+    }catch (const OutOfBoundsException& e) {
+        std::cout<<e.getError()<<std::endl;
+    }
 
     return 0;
 }
