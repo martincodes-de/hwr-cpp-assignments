@@ -6,6 +6,7 @@
 class Kreis : public ZeichenElement {
 public:
     Kreis(Koordinate insertPoint, double radius) : ZeichenElement(insertPoint), m_radius(radius) {}
+    Kreis() : ZeichenElement(), m_radius(1) {}
 
     double getRadius() const { return m_radius; }
 

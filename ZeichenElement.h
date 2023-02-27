@@ -6,6 +6,7 @@
 class ZeichenElement {
 public:
     explicit ZeichenElement(Koordinate insertPoint) : m_insertPoint(insertPoint) {};
+    explicit ZeichenElement() : m_insertPoint() {};
 
     Koordinate getInsertPoint() const { return m_insertPoint; }
 

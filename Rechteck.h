@@ -6,8 +6,8 @@
 
 class Rechteck : public ZeichenElement {
 public:
-    Rechteck(Koordinate insertPoint, double width, double height) : ZeichenElement(insertPoint), m_width(width),
-                                                                    m_height(height) {}
+    Rechteck(Koordinate insertPoint, double width, double height) : ZeichenElement(insertPoint), m_width(width), m_height(height) {}
+    Rechteck() : ZeichenElement(), m_width(1), m_height(1) {}
 
     double getWidth() const { return m_width; }
 
