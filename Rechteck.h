@@ -26,6 +26,8 @@ public:
 
     double getCirc() override { return 2 * (m_width + m_height); }
 
+    std::string getType() override { return "Rechteck"; }
+
     std::string toString() override {
         return m_insertPoint.toString() + ", w=" + std::to_string(m_width) + ", h=" + std::to_string(m_height) +
                ", U=" +

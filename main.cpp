@@ -69,7 +69,7 @@ int main() {
                 area = 0;
                 std::cout << "__________________________" << std::endl;
                 for (auto &element: elements) {
-                    if (typeid(element) == typeid(new Kreis())) {
+                    if (element->getType() == "Kreis") {
                         std::cout << element->toString() << std::endl;
                         std::cout << std::endl;
                         area += element->getArea();
@@ -80,7 +80,7 @@ int main() {
 
                 area = 0;
                 for (auto &element: elements) {
-                    if (typeid(element) == typeid(new Rechteck())) {
+                    if (element->getType() == "Rechteck") {
                         std::cout << element->toString() << std::endl;
                         std::cout << std::endl;
                         area += element->getArea();
