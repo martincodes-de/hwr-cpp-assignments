@@ -3,6 +3,7 @@
 #include "Koordinate.h"
 #include "Kreis.h"
 #include "Rechteck.h"
+#include "InitException.h"
 
 int main() {
     bool cycleContinue = true;
@@ -34,7 +35,12 @@ int main() {
                 std::cin >> radius;
                 std::cout << "__________________________" << std::endl;
 
-                elements.push_back(new Kreis(x, y, radius));
+                try {
+                    elements.push_back(new Kreis(x, y, radius));
+                } catch (const InitException &e) {
+                    std::cout << e.getError() << std::endl;
+                    std::cout << "__________________________" << std::endl;
+                }
                 break;
 
             case 2:
@@ -50,7 +56,13 @@ int main() {
                 std::cin >> width;
                 std::cout << "__________________________" << std::endl;
 
-                elements.push_back(new Rechteck(x, y, width, height));
+                try {
+                    elements.push_back(new Rechteck(x, y, width, height));
+                } catch (const InitException &e) {
+                    std::cout << e.getError() << std::endl;
+                    std::cout << "__________________________" << std::endl;
+
+                }
                 break;
 
             case 3:

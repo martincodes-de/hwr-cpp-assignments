@@ -10,7 +10,7 @@ public:
     //Standardparameter für Koordinaten ergeben nur Sinn, wenn bei der Anwendung erzeugte ZeichenElemente auch standardmäßig
     // an einer bestimmten Stelle erzeugt werden. Es kann beispielsweise Sinn ergeben neue Objekte im Koordinatenursprung zu erzeugen.
 
-    std::string toString() { return "x=" + std::to_string(m_x) + ", y=" + std::to_string(m_y); }
+    std::string toString() const { return "x=" + std::to_string(m_x) + ", y=" + std::to_string(m_y); }
 
 private:
     double m_x;

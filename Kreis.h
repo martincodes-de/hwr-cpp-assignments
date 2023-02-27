@@ -5,15 +5,9 @@
 
 class Kreis : public ZeichenElement {
 public:
-    Kreis(Koordinate insertPoint, double radius) : ZeichenElement(insertPoint), m_radius(radius) {}
-
     Kreis() : ZeichenElement(), m_radius(1) {}
 
-    Kreis(double x, double y, double radius) : ZeichenElement(x, y), m_radius(radius) {}
-
-    double getRadius() const { return m_radius; }
-
-    void setRadius(double radius) { m_radius = radius; }
+    Kreis(double x, double y, double radius);
 
     double getArea() override { return 3.14 * m_radius * m_radius; }
 
@@ -21,13 +15,10 @@ public:
 
     std::string getType() override { return "Kreis"; }
 
-    std::string toString() override {
-        return m_insertPoint.toString() + ", r=" + std::to_string(m_radius) + ", U=" + std::to_string(this->getCirc());
-    }
+    std::string toString() override;
 
 private:
     double m_radius;
 };
-
 
 #endif //HWR_CPP_ASSIGNMENTS_KREIS_H
