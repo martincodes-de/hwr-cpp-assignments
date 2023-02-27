@@ -11,6 +11,9 @@ public:
 
     Rechteck() : ZeichenElement(), m_width(1), m_height(1) {}
 
+    Rechteck(double x, double y, double width, double height) : ZeichenElement(x, y), m_width(width),
+                                                                m_height(height) {}
+
     double getWidth() const { return m_width; }
 
     double getHeight() const { return m_height; }
@@ -22,6 +25,12 @@ public:
     double getArea() override { return m_width * m_height; }
 
     double getCirc() override { return 2 * (m_width + m_height); }
+
+    std::string toString() override {
+        return m_insertPoint.toString() + ", w=" + std::to_string(m_width) + ", h=" + std::to_string(m_height) +
+               ", U=" +
+               std::to_string(this->getCirc());
+    }
 
 private:
     double m_width;
