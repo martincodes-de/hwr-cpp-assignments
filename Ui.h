@@ -1,36 +1,28 @@
 #ifndef HWR_CPP_ASSIGNMENTS_UI_H
 #define HWR_CPP_ASSIGNMENTS_UI_H
 
-#include "ComplexNumber.h"
+
+#include <vector>
+#include "Reading.h"
 
 class Ui {
-private:
-    ComplexNumber complexNumber;
-
-    bool keepRunning = true;
-
-    double real{}, imag{}, r{}, phi{};
-
-    void showMenuAndWaitForInput();
-
-    static void displayMainMenu();
-
-    void promptReal();
-
-    void promptImag();
-
-    void promptR();
-
-    void promptPhi();
-
-    void printCartesian();
-
-    void printPolar();
-
 public:
-    void start();
+    void static start();
+private:
+    Ui():m_running(true){};
+    std::vector<Reading> m_data;
+    bool m_running;
 
-    Ui();
+    void run();
+
+    static int displayMainMenuAndGetChoice();
+
+    void readData();
+
+    void outputInOrder();
+
+    void outputSplit();
 };
 
-#endif
+
+#endif //HWR_CPP_ASSIGNMENTS_UI_H

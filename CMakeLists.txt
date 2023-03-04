@@ -4,4 +4,4 @@ project(hwr_cpp_assignments)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(hwr_cpp_assignments
-        main.cpp Ui.cpp ComplexNumber.h ComplexNumber.cpp)
+        main.cpp Ui.h Ui.cpp Reading.cpp)

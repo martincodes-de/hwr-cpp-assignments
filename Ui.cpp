@@ -1,97 +1,87 @@
 #include <iostream>
 #include "Ui.h"
 
-Ui::Ui() {}
-
 void Ui::start() {
-    while (this->keepRunning) {
-        this->showMenuAndWaitForInput();
+    Ui ui;
+    ui.run();
+}
+
+void Ui::run() {
+    while (m_running){
+        int input = displayMainMenuAndGetChoice();
+        std::cout<<std::endl;
+
+        switch (input) {
+            case 1:
+                readData();
+                std::cout<<std::endl;
+                break;
+            case 2:
+                outputInOrder();
+                std::cout<<std::endl;
+                break;
+            case 3:
+                outputSplit();
+                std::cout<<std::endl;
+                break;
+            case 9:
+                m_data.emplace_back(20.5, 10);
+                m_data.emplace_back(21.5, 11);
+                m_data.emplace_back(22.5, 12);
+                break;
+            case 10:
+                m_running = false;
+                break;
+            default:
+                std::cout<<"Wrong input, try again!"<<std::endl;
+                std::cout<<std::endl;
+                break;
+        }
     }
 }
 
-void Ui::showMenuAndWaitForInput() {
-    int selectedActionNumber;
+int Ui::displayMainMenuAndGetChoice() {
+    int input;
+    std::cout<<"------------------------ Menu ------------------------"<<std::endl;
+    std::cout<<"1. Read Data from Sensors"<<std::endl;
+    std::cout<<"2. Display Data in chronological order"<<std::endl;
+    std::cout<<"3. Display Data split into temp and lightning strikes"<<std::endl;
+    std::cout<<"------------------------------------------------------"<<std::endl;
+    std::cin>>input;
+    return input;
+}
 
-    displayMainMenu();
+void Ui::readData() {
+    double avgTemp;
+    int lightning;
+    std::cout<<"--------------------- Read Data ----------------------"<<std::endl;
+    std::cout<<"Enter average Temp since last reading:"<<std::endl;
+    std::cin>>avgTemp;
+    std::cout<<"Enter lightning strikes since last reading:"<<std::endl;
+    std::cin>>lightning;
+    std::cout<<"------------------------------------------------------"<<std::endl;
 
-    std::cin >> selectedActionNumber;
+    m_data.emplace_back(avgTemp, lightning);
+}
 
-    switch (selectedActionNumber) {
-        case 1:
-            promptImag();
-            promptReal();
-            break;
-        case 2:
-            promptR();
-            promptPhi();
-            break;
-        case 3:
-            promptReal();
-            break;
-        case 4:
-            promptImag();
-            break;
-        case 5:
-            promptR();
-            break;
-        case 6:
-            promptPhi();
-            break;
-        case 7:
-            printCartesian();
-            break;
-        case 8:
-            printPolar();
-            break;
-        case 9:
-            printCartesian();
-            printPolar();
-            break;
-        case 10:
-            this->keepRunning = false;
-            break;
-        default:
-            std::cerr << "Ungueltige Nummer. Nur (1,2,3,4,5,6,7,8,9) erlaubt." << std::endl;
+void Ui::outputInOrder() {
+    std::cout<<"----------- Output in chronological Order ------------"<<std::endl;
+    for (Reading dataPoint : m_data) {
+        std::cout<<"   "<<dataPoint.toString()<< std::endl;
     }
+    std::cout<<"------------------------------------------------------"<<std::endl;
 }
 
-void Ui::displayMainMenu() {
-    std::cout << "1: als kartesische Form eingeben \t| 2: als polarkoordinaten Form eingeben" << std::endl;
-    std::cout << "3: nur Realteil eingeben         \t| 4: nur Imaginaereteil eingeben" << std::endl;
-    std::cout << "5: nur Betrag r eingeben         \t| 6: nur Phase phi eingeben" << std::endl;
-    std::cout << "7: in kartesische Form ausgeben  \t| 8: in polarkoordinaten Form ausgeben" << std::endl;
-    std::cout << "9: in beiden Formen ausgeben     \t| 10: Programm verlassen" << std::endl;
-    std::cout << "Nummer waehlen (1,2,3,4,5,6,7,8,9) um Aktion zu waehlen: " << std::endl;
-}
+void Ui::outputSplit() {
+    std::cout<<"-- Output split into avg temp and lightning strikes --"<<std::endl;
+    std::cout<<"Avg temps:"<<std::endl;
+    for (Reading dataPoint : m_data) {
+        std::cout<<"   "<<dataPoint.getAvgTempAsString()<< std::endl;
+    }
+    std::cout<<"# of lightning strikes:"<<std::endl;
+    for (Reading dataPoint : m_data) {
+        std::cout<<"   "<<dataPoint.getLightningAsString()<< std::endl;
+    }
+    std::cout<<"------------------------------------------------------"<<std::endl;
 
-void Ui::promptReal() {
-    std::cout << "Bitte Realteil eingeben:" << std::endl;
-    std::cin >> real;
-    this->complexNumber.setReal(real);
-}
-
-void Ui::promptImag() {
-    std::cout << "Bitte Imaginaerteil eingeben:" << std::endl;
-    std::cin >> imag;
-    this->complexNumber.setImag(imag);
-}
-
-void Ui::promptR() {
-    std::cout << "Bitte Betrag r eingeben" << std::endl;
-    std::cin >> r;
-    this->complexNumber.setR(r);
-}
-
-void Ui::promptPhi() {
-    std::cout << "Bitte Betrag phi eingeben" << std::endl;
-    std::cin >> phi;
-    this->complexNumber.setPhi(phi);
-}
-
-void Ui::printCartesian() {
-    std::cout << "Karthesische Form:  " << complexNumber.toCartesianString() << std::endl;
-}
-
-void Ui::printPolar() {
-    std::cout << "Polare Form:\t    " << complexNumber.toPolarString() << std::endl;
 }
