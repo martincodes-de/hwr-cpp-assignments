@@ -7,12 +7,9 @@
 
 class Ui {
 private:
-    std::vector<ZeichenElement *> m_elements;
+    std::vector<ZeichenElement*> m_elements;
 
     static int displayMainMenuAndGetInput();
-
-public:
-    void start();
 
     void addCircle();
 
@@ -21,6 +18,9 @@ public:
     void outputInOrder();
 
     void outputSorted();
+
+public:
+    void start();
 };
 
 
