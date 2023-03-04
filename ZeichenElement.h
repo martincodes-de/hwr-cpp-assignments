@@ -27,8 +27,6 @@ public:
     virtual double getArea() = 0;
 
     virtual double getCirc() = 0;
-
-    virtual std::string getType() = 0;
 };
 
 

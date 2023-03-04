@@ -13,8 +13,6 @@ public:
 
     double getCirc() override { return 2 * 3.14 * m_radius; }
 
-    std::string getType() override { return "Kreis"; }
-
     std::string toString() override;
 
 private:

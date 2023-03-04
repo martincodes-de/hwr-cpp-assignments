@@ -114,7 +114,7 @@ void Ui::outputSorted() {
     double area = 0;
     std::cout << "__________________________" << std::endl;
     for (auto &element: m_elements) {
-        if (element->getType() == "Kreis") {
+        if (typeid(*element) == typeid(Kreis)) {
             std::cout << element->toString() << std::endl;
             std::cout << std::endl;
             area += element->getArea();
@@ -125,7 +125,7 @@ void Ui::outputSorted() {
 
     area = 0;
     for (auto &element: m_elements) {
-        if (element->getType() == "Rechteck") {
+        if (typeid(*element) == typeid(Rechteck)) {
             std::cout << element->toString() << std::endl;
             std::cout << std::endl;
             area += element->getArea();

@@ -14,8 +14,6 @@ public:
 
     double getCirc() override { return 2 * (m_width + m_height); }
 
-    std::string getType() override { return "Rechteck"; }
-
     std::string toString() override;
 
 private:
