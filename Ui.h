@@ -8,8 +8,9 @@
 class Ui {
 public:
     void static start();
+
 private:
-    Ui():m_running(true){};
+    Ui() : m_running(true) {};
     std::vector<Reading> m_data;
     bool m_running;
 
@@ -22,6 +23,8 @@ private:
     void outputInOrder();
 
     void outputSplit();
+
+    void overAll();
 };
 
 

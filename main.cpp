@@ -1,6 +1,5 @@
-#include <iostream>
 #include "Ui.h"
 
-int main (){
+int main() {
     Ui::start();
 }

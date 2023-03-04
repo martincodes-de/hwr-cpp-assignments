@@ -6,13 +6,18 @@
 
 class Reading {
 public:
-    Reading(double avgTemp, int lightning) : m_avgTemp(avgTemp), m_lightning(lightning) {}
+    Reading(double avgTemp, int lightning);
 
-    std::string toString();
+    std::string toString() const;
 
-    std::string getAvgTempAsString();
+    std::string getAvgTempAsString() const;
 
-    std::string getLightningAsString();
+    std::string getLightningAsString() const;
+
+    double getAvgTmp() const { return m_avgTemp; }
+
+    int getLightning() const { return m_lightning; }
+
 private:
     double m_avgTemp;
     int m_lightning;
