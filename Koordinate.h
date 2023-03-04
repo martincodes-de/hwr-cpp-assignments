@@ -1,5 +1,6 @@
 #ifndef HWR_CPP_ASSIGNMENTS_KOORDINATE_H
 #define HWR_CPP_ASSIGNMENTS_KOORDINATE_H
+
 #include <string>
 
 class Koordinate {
